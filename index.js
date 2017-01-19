@@ -8,10 +8,10 @@ const ready = require('micro-common/ready');
  * This is an action on this service.  It handles requests for words that are greetings.
  */
 seneca.add({word_type: 'greeting'}, (request, respond) => {
-
+    console.log('request', request);
     var greeting = 'hello';
     
-    respond(err, {
+    respond(null, {
         greeting: greeting
     });
     /**
@@ -53,7 +53,7 @@ ready({
             port: 5672,
             username: 'guest',
             password: 'guest',
-            pin: {service: 'service-two'} // this service
+            pin: {service: 'service-one'} // this service
         });
     
 });
